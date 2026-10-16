@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gsd-adk-app"
+version = "0.1.0"
+description = "GSD Single-Agent ADK Web Application with Vertex AI Search (HR PDFs) and BigQuery (Project Billing Hours)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "google-adk>=1.16.0",
+    "google-cloud-bigquery>=3.25.0",
+    "google-cloud-storage>=2.18.0",
+    "google-cloud-discoveryengine>=0.13.0",
+    "fpdf2>=2.7.9",
+    "python-dotenv>=1.0.1",
+    "pytest>=8.0.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["gsd_agent*", "scripts*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
